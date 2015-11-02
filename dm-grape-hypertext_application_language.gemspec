@@ -11,6 +11,4 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency 'dm-hypertext_application_language'
   spec.add_dependency 'grape-hypertext_application_language'
-
-  spec.add_development_dependency 'bundler'
 end
