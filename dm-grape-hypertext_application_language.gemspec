@@ -9,6 +9,5 @@ Gem::Specification.new do |spec|
   spec.files = `git ls-files -z`.split("\x0")
   spec.license = 'MIT'
 
-  spec.add_dependency 'dm-hypertext_application_language'
   spec.add_dependency 'grape-hypertext_application_language'
 end
