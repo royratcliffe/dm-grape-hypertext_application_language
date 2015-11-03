@@ -58,10 +58,21 @@ module DataMapper
     # representation both embeds the resources and includes links to the same
     # resources.
     #
+    # Only adds a link to self if the arguments include a Rack environment and
+    # the rack environment specifies the request path. This assumes that the
+    # request path is either an absolute path because it begins with a slash, or
+    # a relative path because higher-level Rack formatters will make the
+    # reference absolute by adding the base URL and script name.
+    #
     # @return [HypertextApplicationLanguage::Representation]
     #   Representation of a collection of resources.
     def to_hal(*args)
+      keyword_args = args.last.is_a?(Hash) ? args.pop : {}
       representation = HypertextApplicationLanguage::Representation.new
+
+      if (env = keyword_args[:env]) && (href = env['REQUEST_PATH'])
+        representation.with_link(HypertextApplicationLanguage::Link::SELF_REL, href)
+      end
 
       rel = model.to_s.tableize
 
