@@ -10,4 +10,7 @@ Gem::Specification.new do |spec|
   spec.license = 'MIT'
 
   spec.add_dependency 'grape-hypertext_application_language'
+
+  spec.add_development_dependency 'bundler'
+  spec.add_development_dependency 'rake'
 end
