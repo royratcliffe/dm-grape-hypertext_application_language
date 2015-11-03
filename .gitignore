@@ -1,0 +1,3 @@
+# Ignore everything beneath the +pkg+ folder. The Bundler +build+ task places
+# +*.gem+ packages in this folder.
+pkg
