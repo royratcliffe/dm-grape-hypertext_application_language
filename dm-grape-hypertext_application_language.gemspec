@@ -9,6 +9,7 @@ Gem::Specification.new do |spec|
   spec.files = `git ls-files -z`.split("\x0")
   spec.license = 'MIT'
 
+  spec.add_dependency 'data_mapper'
   spec.add_dependency 'grape-hypertext_application_language'
 
   spec.add_development_dependency 'bundler'
