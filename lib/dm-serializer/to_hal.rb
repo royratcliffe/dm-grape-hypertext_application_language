@@ -88,6 +88,9 @@ module DataMapper
       %w(offset limit).each do |name|
         representation.with_property(name, query.__send__(name))
       end
+      %w(count).each do |name|
+        representation.with_property(name, model.__send__(name, conditions: query.conditions))
+      end
 
       representation
     end
